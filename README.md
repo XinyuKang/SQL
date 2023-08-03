@@ -171,7 +171,6 @@ JOIN customers C
 ```
 
 ### OUTER JOIN
-- There are two types of OUTER JOIN: `LEFT JOIN` and `RIGHT JOIN`.
 ```
 SELECT 
      c.customer_id,
@@ -182,8 +181,35 @@ JOIN orders o
      ON c.customer_id = o.customer_id
 ORDER BY c.customer_id
 ```
-In thr above INNER JOIN example, we only see customers with an order but there might be customers that don't have any orders. 
+In the above INNER JOIN example, we only see customers with an order (i.e. for a given customer, if he has an order, return that record) but there might be customers that don't have any orders. 
 If we want customers whether they have an order or not.
+
+- There are two types of OUTER JOIN: `LEFT JOIN` and `RIGHT JOIN`.
+
+#### LEFT JOIN
+**All the customers from the left table are returned** whether the `ON` condition is true or not.
+```
+SELECT 
+     c.customer_id,
+     c.first_name,
+     o.order_id
+FROM customers c
+LEFT JOIN orders o
+     ON c.customer_id = o.customer_id
+ORDER BY c.customer_id
+```
+#### RIGHT JOIN
+**All the customers from the right table are returned** whether the `ON` condition is true or not.
+```
+SELECT 
+     c.customer_id,
+     c.first_name,
+     o.order_id
+FROM customers c
+RIGHT JOIN orders o
+     ON c.customer_id = o.customer_id
+ORDER BY c.customer_id
+```
 
 ### Self join
 ```
