@@ -118,7 +118,7 @@ WHERE phone IS NULL;
 ## GROUP BY
 Group `rows` that have the same values into summary rows.
 `GROUP BY` is often used with aggregate functions:
-- `COUNT()`
+- `COUNT()`: COUNT ([ALL | DISTINCT] expression); By default, SQL Server Count Function uses All keyword. It means that SQL Server counts all records in a table. It also includes the rows having duplicate values as well.
 - 'MAX()'
 - 'MIN()'
 - 'SUM()'
