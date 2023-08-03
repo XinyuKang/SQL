@@ -130,6 +130,20 @@ FROM Customers
 GROUP BY Country;
 ```
 
+## HAVING
+Like WHERE, the HAVING clause `filters the rows of a table`. Whereas WHERE tried to `filter the whole table`, HAVING filters `rows within each of the groups defined by GROUP BY`.
+```
+SELECT 
+    product_line,
+    AVG(unit_price) AS avg_price,
+    SUM(quantity) AS tot_pieces,
+    SUM(total) AS total_gain
+FROM sales
+GROUP BY product_line
+HAVING SUM(total) > 40000
+ORDER BY total_gain DESC
+```
+
 ## ORDER BY (DESC/ASC)
 Every table has a `primary column` and values of that column should uniquely identify the records in that table.
 And records will be sorted by this primary column by default. To sort the records by a different `column`, use ORDER BY
