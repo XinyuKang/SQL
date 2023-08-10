@@ -22,3 +22,5 @@ However, this speed creates tradeoffs. If a UDP datagram is lost in transit, it 
 
 ### Multicast
 Multicast is group communication where data transmission is addressed to a group of destination computers simultaneously.
+
+Unicast uses TCP for communications while multicast communication uses UDP.
