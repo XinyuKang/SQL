@@ -370,6 +370,17 @@ SELECT name
 FROM shippers
 ```
 
+## DATEDIFF
+- MySQL uses DATEDIFF to compare two date type values.
+- DATEDIFF(a, b) means a is a day lafter than b
+```
+SELECT w2.id
+FROM Weather w1
+LEFT JOIN Weather w2
+ON DATEDIFF(w2.recordDate, w1.recordDate) = 1
+WHERE w1.temperature < w2.temperature
+```
+
 - Note that UNION will append queries vertically (i.e. not like join, which appends horizontally) even if the unioned column might have different names
 
 # Sources
