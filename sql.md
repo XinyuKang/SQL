@@ -115,6 +115,17 @@ FROM Customers
 WHERE phone IS NULL;
 ```
 
+## IFNULL
+The IFNULL function in SQL is a function that allows you to return an alternative value if the first expression evaluates to NULL.
+```
+IFNULL(grouped.attended_exams, 0)
+```
+This will check the value of grouped.attended_exams:
+
+If grouped.attended_exams is NULL, then 0 will be returned.
+
+If grouped.attended_exams is not NULL, then the value of grouped.attended_exams will be returned.
+
 ## GROUP BY
 Group `rows` that have the same values into summary rows.
 `GROUP BY` is often used with aggregate functions:
@@ -242,6 +253,7 @@ LEFT JOIN shipper sh
      ON o.shipper_id = sh.shipper_id
 ORDER BY c.customer_id
 ```
+- When performing a LEFT JOIN, if there are multiple rows in the right table that match the join condition with a row from the left table, then the row from the left table will be repeated for each matching row from the right table in the result set.
 
 #### RIGHT JOIN
 **All the customers from the right table are returned** whether the `ON` condition is true or not.
@@ -395,6 +407,12 @@ WHERE w1.temperature < w2.temperature
 ```
 
 - Note that UNION will append queries vertically (i.e. not like join, which appends horizontally) even if the unioned column might have different names
+
+## Other tricks
+### Three ways to represent dates
+1. DATEDIFF(A, B)
+2. A >= B
+3. A BETWEEN B AND C
 
 # Sources
 - [Programming with Mosh](https://www.youtube.com/watch?v=7S_tz1z_5bA)
