@@ -129,6 +129,8 @@ SELECT COUNT(CustomerID), Country
 FROM Customers
 GROUP BY Country;
 ```
+### COUNT
+Expressions that are not encapsulated within the COUNT function and must be included in the GROUP BY clause at the end of the SQL statement.
 
 ## HAVING
 Like WHERE, the HAVING clause `filters the rows of a table`. Whereas WHERE tried to `filter the whole table`, HAVING filters `rows within each of the groups defined by GROUP BY`.
