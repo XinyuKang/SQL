@@ -132,6 +132,17 @@ GROUP BY Country;
 ### COUNT
 Expressions that are not encapsulated within the COUNT function and must be included in the GROUP BY clause at the end of the SQL statement.
 
+1. COUNT(*):
+This counts all rows in the group, including those with NULL values in any columns.
+Essentially, it counts the number of rows in each group.
+2. COUNT(column_name):
+This counts all non-NULL values in the specified column within the group.
+If the specified column has a NULL value in any row within the group, that row will not be counted.
+So, the distinction between COUNT(*) and COUNT(column_name) primarily lies in how NULL values are treated:
+
+- COUNT(*) counts rows, irrespective of whether any of the columns have NULL values.
+- COUNT(column_name) counts only non-NULL values in the specified column.
+
 ## HAVING
 Like WHERE, the HAVING clause `filters the rows of a table`. Whereas WHERE tried to `filter the whole table`, HAVING filters `rows within each of the groups defined by GROUP BY`.
 ```
@@ -278,7 +289,7 @@ JOIN customers C
      -- ON O.customer_id = C.customer_id
      USING (customer_id)
 JOIN shippers sh
-     USING (shipper_id)
+     USING (shipper_id)t
 ```
 
 ### Compound join conditions
